@@ -99,3 +99,20 @@ body {
   input:focus {
     outline: 2px solid rgb(255, 153, 0);
   }
+  .product-image {
+    width: 200px; /* Atur lebar gambar */
+    height: auto; /* Pertahankan rasio aspek */
+    object-fit: cover; /* Sesuaikan gambar agar pas */
+    border-radius: 8px; /* Opsional: tambahkan sudut melengkung */
+  }
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Kolom fleksibel */
+    gap: 16px; /* Jarak antar elemen grid */
+    padding: 16px; /* Padding di sekitar grid */
+  }
+  
+  .product-item {
+    text-align: center; /* Pusatkan konten dalam setiap item */
+  }
+  
