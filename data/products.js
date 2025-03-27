@@ -1,4 +1,19 @@
 const products = [
+  {
+    id: "id768769892379",
+    image: "images/products/umbrella.jpg",
+    name: "Compact Travel Umbrella",
+    rating: {
+      stars: 5,
+      count: 5
+    },
+    priceCents: 15,
+    keywords: [
+      "umbrella",
+      "accessories",
+      "travel"
+    ]
+  },
     {
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
       image: "images/products/athletic-cotton-socks-6-pairs.jpg",
