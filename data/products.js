@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: "id768769892379",
     image: "images/products/umbrella.jpg",
