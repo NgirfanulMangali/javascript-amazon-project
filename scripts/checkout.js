@@ -32,10 +32,12 @@ cart.forEach((cartItem) => {
         </div>
         <div class="product-price">$${formatCurrency(matchingProduct.priceCents)}</div>
         <div class="product-quantity">
-          <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
-          <span class="update-quantity-link link-primary">
+          <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span></span>
+          <span class="update-quantity-link link-primary js-update-link"
+          data-product-id="${matchingProduct.id}">
             Update
           </span>
+          
           <span class="delete-quantity-link link-primary js-delete-link"
           data-product-id="${matchingProduct.id}">
             Delete
@@ -112,3 +114,12 @@ const cartQuantity = calculateCartQuantity();
     .innerHTML = `${cartQuantity} items`;
     updateCartQuantity();
 }
+
+
+document.querySelectorAll('.js-update-link')
+  .forEach((link) => {
+    link.addEventListener('click', () => {
+      const productId = link.dataset.productId;
+      
+    });
+  });
