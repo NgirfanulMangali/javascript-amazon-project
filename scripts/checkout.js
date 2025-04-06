@@ -126,6 +126,8 @@ document.querySelectorAll('.js-update-link')
         `.js-cart-item-container-${productId}`
       );
       container.classList.add('is-editing-quantity');
+
       
+
     });
   });
