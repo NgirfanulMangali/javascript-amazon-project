@@ -1,3 +1,5 @@
+import {formatCurrency} from '../scripts/utils/money.js';
+
 export function getProduct(productId) {
   let matchingProduct;
 
@@ -10,12 +12,20 @@ export function getProduct(productId) {
   return matchingProduct;
 }
 
+<<<<<<< HEAD
  class Product {
+=======
+class Product {
+>>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
   id;
   image;
   name;
   rating;
   priceCents;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
   constructor(productDetails) {
     this.id = productDetails.id;
     this.image = productDetails.image;
@@ -23,6 +33,7 @@ export function getProduct(productId) {
     this.rating = productDetails.rating;
     this.priceCents = productDetails.priceCents;
   }
+<<<<<<< HEAD
  }
 
  const product1 = new Product({
@@ -45,6 +56,70 @@ export function getProduct(productId) {
 
 
 
+=======
+
+  getStarsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
+    return `$${formatCurrency(this.priceCents)}`;
+  }
+
+  extraInfoHTML() {
+    return '';
+  }
+}
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML() {
+    // super.extraInfoHTML();
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+        Size chart
+      </a>
+    `;
+  }
+}
+
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+
+/*
+console.log(this);
+
+const object2 = {
+  a: 2,
+  b: this.a
+};
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+this
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+};
+object3.method();
+*/
+>>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
 
 export const products = [
  {
@@ -425,23 +500,7 @@ export const products = [
       "kitchen"
     ]
   },
-  {
-    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
-    image: "images/products/duvet-cover-set-blue-twin.jpg",
-    name: "Duvet Cover Set with Zipper Closure",
-    rating: {
-      stars: 4,
-      count: 456
-    },
-    priceCents: 2399,
-    keywords: [
-      "bedroom",
-      "bed sheets",
-      "sheets",
-      "covers",
-      "home"
-    ]
-  },
+  
   {
     id: "d2785924-743d-49b3-8f03-ec258e640503",
     image: "images/products/women-chunky-beanie-gray.webp",
@@ -554,20 +613,7 @@ export const products = [
       "womens"
     ]
   },
-  {
-    id: "d339adf3-e004-4c20-a120-40e8874c66cb",
-    image: "images/products/double-elongated-twist-french-wire-earrings.webp",
-    name: "Double Oval Twist French Wire Earrings - Gold",
-    rating: {
-      stars: 4.5,
-      count: 117
-    },
-    priceCents: 2400,
-    keywords: [
-      "accessories",
-      "womens"
-    ]
-  },
+  
   {
     id: "d37a651a-d501-483b-aae6-a9659b0757a0",
     image: "images/products/round-airtight-food-storage-containers.jpg",
@@ -643,21 +689,7 @@ export const products = [
       "womens"
     ]
   },
-  {
-    id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
-    image: "images/products/countertop-blender-64-oz.jpg",
-    name: "Countertop Blender - 64oz, 1400 Watts",
-    rating: {
-      stars: 4,
-      count: 3
-    },
-    priceCents: 10747,
-    keywords: [
-      "food blenders",
-      "kitchen",
-      "appliances"
-    ]
-  },
+  
   {
     id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
     image: "images/products/floral-mixing-bowl-set.jpg",
@@ -705,4 +737,9 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((productDetails) => {
+  if (productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  }
+  return new Product(productDetails);
+});
