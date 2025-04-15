@@ -12,20 +12,13 @@ export function getProduct(productId) {
   return matchingProduct;
 }
 
-<<<<<<< HEAD
- class Product {
-=======
-class Product {
->>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
+
   id;
   image;
   name;
   rating;
   priceCents;
-<<<<<<< HEAD
-=======
 
->>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
   constructor(productDetails) {
     this.id = productDetails.id;
     this.image = productDetails.image;
@@ -33,8 +26,6 @@ class Product {
     this.rating = productDetails.rating;
     this.priceCents = productDetails.priceCents;
   }
-<<<<<<< HEAD
- }
 
  const product1 = new Product({
   id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -56,7 +47,7 @@ class Product {
 
 
 
-=======
+
 
   getStarsUrl() {
     return `images/ratings/rating-${this.rating.stars * 10}.png`;
@@ -69,7 +60,7 @@ class Product {
   extraInfoHTML() {
     return '';
   }
-}
+
 
 class Clothing extends Product {
   sizeChartLink;
@@ -119,8 +110,30 @@ const object3 = {
 };
 object3.method();
 */
->>>>>>> 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
+ 4e14badaadfb1bcc40f9fb4b66387f42ab473b0a
 
+
+
+export let products = [];
+
+function loadProducts() {
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', () => {
+    JSON.parse(xhr.response);
+  })
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+  xhr.send();
+}
+loadProducts();
+
+
+
+
+
+
+/*
 export const products = [
  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -743,3 +756,4 @@ export const products = [
   }
   return new Product(productDetails);
 });
+*/
